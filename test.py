@@ -33,7 +33,7 @@ conditioning = {'type': 'conditioning', 'A': [["Three-point stance sprint", "6x4
 pitching = {'type': 'pitching', 'note': "Create a contrast training effect by going from heavy to light(and thus increasing your velocity when you come back to light)", 'throw': [["2-4", "5", 30], ["2-4", "7", 30],["2-4", "9", 45],["2-4", "5", 30]]}
 
 #marathon
-week = {"1" : [["Flex", 3], ["Reg", 3], ["Rest", 0], ["Reg", 3], ["Rest", 0], ["Rest", 0], ["Long", 6]],
+week = {'type' : 'week', "1" : [["Flex", 3], ["Reg", 3], ["Rest", 0], ["Reg", 3], ["Rest", 0], ["Rest", 0], ["Long", 6]],
              "2" : [["Flex", 3], ["Fart", 3], ["Rest", 0], ["Reg", 4], ["Rest", 0], ["AYF", 3], ["Long", 8]]
              "3" : [["Flex", 3], ["Tempo", 4], ["Rest", 0], ["Reg", 5], ["Rest", 0], ["AYF", 4], ["Long", 10]]
              "4" : [["Flex", 3], ["Intervals", 4], ["Rest", 0], ["Reg", 6], ["Rest", 0], ["AYF", 4], ["Long", 12]
@@ -56,3 +56,5 @@ baseball.replace_one({'type': "speed"}, speed, upsert=True)
 #baseball.insert_one(speed)
 baseball.replace_one({'type': "conditioning"}, conditioning, upsert=True)
 baseball.replace_one({'type': "pitching"}, pitching, upsert=True)
+
+marathon.replace_one({'type' : "week"},week, upsert=True)
