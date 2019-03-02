@@ -34,7 +34,7 @@ pitching = {'type': 'pitching', 'note': "Create a contrast training effect by go
 
 #marathon
 week = {'type' : 'week', "1" : [["Flex", 3], ["Reg", 3], ["Rest", 0], ["Reg", 3], ["Rest", 0], ["Rest", 0], ["Long", 6]],
-             "2" : [["Flex", 3], ["Fart", 3], ["Rest", 0], ["Reg", 4], ["Rest", 0], ["AYF", 3], ["Long", 8]],
+             "2" : [["Flex", 3], ["Fartlek", 3], ["Rest", 0], ["Reg", 4], ["Rest", 0], ["AYF", 3], ["Long", 8]],
              "3" : [["Flex", 3], ["Tempo", 4], ["Rest", 0], ["Reg", 5], ["Rest", 0], ["AYF", 4], ["Long", 10]],
              "4" : [["Flex", 3], ["Intervals", 4], ["Rest", 0], ["Reg", 6], ["Rest", 0], ["AYF", 4], ["Long", 12]],
              "5" : [["Flex", 3], ["Hills", 4], ["Rest", 0], ["Reg", 6], ["Rest", 0], ["AYF", 5], ["Long", 10]],
@@ -49,6 +49,7 @@ week = {'type' : 'week', "1" : [["Flex", 3], ["Reg", 3], ["Rest", 0], ["Reg", 3]
              "14" : [["Flex", 3], ["Hills", 4], ["Rest", 0], ["Reg", 6], ["Rest", 0], ["AYF", 4], ["Long", 12]],
              "15" : [["Flex", 3], ["Tempo", 3], ["Rest", 0], ["Reg", 5], ["Rest", 0], ["AYF", 4], ["Long", 7]],
              "16" : [["Flex", 3], ["Reg", 3], ["Rest", 0], ["Reg", 3], ["Rest", 0], ["AYF", 2], ["Race!", 26.2]]}
+Mdefinitions = {'type' : 'Mdefinitions', [["Flex", "Flex Day: The best day of the week to replace your run with a cross-training session or a day off!"], ["Fartlek", "Fartlek: Swedish for \“speed play.\" Fartlek workouts involve running at different speeds for varying periods--good preparation for shifting gears in a race"], ["Rest", "Take a day off!"], ["Reg", "Regular Run: A run performed at a comfortable, not-too-hard pace."], ["AYF", "As You Feel (AYF): For these runs, leave your watch and your cares behind. Run for the fun of it, not because you're training. Run as fast—or as slow—as you like."], ["Long", "Long Run: The most important workout of the week for distance runners. Long runs build both strength and confidence."], ["Intervals", "Intervals: Running short (usually between 200 and 1600 meters), fast repeats with recovery jogs in between. Interval training builds speed and endurance."], ["Tempo", "Tempo Run: A training run (usually 20 to 30 minutes) at a pace slightly slower than 10K race pace."], ["Hills", "Run in an area with lots of inclines!"]}
 
 # This inserts a singular dictionary into the associated document
 baseball.replace_one({'type': "agility"},agility, upsert=True)
@@ -58,3 +59,4 @@ baseball.replace_one({'type': "conditioning"}, conditioning, upsert=True)
 baseball.replace_one({'type': "pitching"}, pitching, upsert=True)
 
 marathon.replace_one({'type' : "week"},week, upsert=True)
+marathon.replace_one({'type' : "Mdefinitions"},Mdefinitions, upsert=True)
