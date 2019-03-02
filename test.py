@@ -4,7 +4,7 @@
 
 import pymongo
 
-client = pymongo.MongoClient("mongodb://root:trackstar2019@track.mongodb.net/admin")
+client = pymongo.MongoClient("mongodb://root:trackstar2019@track-tyc0p.gcp.mongodb.net/test?retryWrites=true")
 db = client.track
 
 
