@@ -34,20 +34,20 @@ pitching = {'type': 'pitching', 'note': "Create a contrast training effect by go
 
 #marathon
 week = {'type' : 'week', "1" : [["Flex", 3], ["Reg", 3], ["Rest", 0], ["Reg", 3], ["Rest", 0], ["Rest", 0], ["Long", 6]],
-             "2" : [["Flex", 3], ["Fart", 3], ["Rest", 0], ["Reg", 4], ["Rest", 0], ["AYF", 3], ["Long", 8]]
-             "3" : [["Flex", 3], ["Tempo", 4], ["Rest", 0], ["Reg", 5], ["Rest", 0], ["AYF", 4], ["Long", 10]]
-             "4" : [["Flex", 3], ["Intervals", 4], ["Rest", 0], ["Reg", 6], ["Rest", 0], ["AYF", 4], ["Long", 12]
-             "5" : [["Flex", 3], ["Hills", 4], ["Rest", 0], ["Reg", 6], ["Rest", 0], ["AYF", 5], ["Long", 10]]
-             "6" : [["Flex", 3], ["Tempo", 5], ["Rest", 0], ["Reg", 5], ["Rest", 0], ["Rest", 0], ["Long", 14]]
-             "7" : [["Flex", 3], ["Intervals", 5], ["Rest", 0], ["Reg", 5], ["Rest", 0], ["AYF", 5], ["Long", 10]]
-             "8" : [["Flex", 3], ["Hills", 4], ["Rest", 0], ["Reg", 6], ["Rest", 0], ["AYF", 5], ["Long", 16]]
-             "9" : [["Flex", 3], ["Tempo", 6], ["Rest", 0], ["Reg", 5], ["Rest", 0], ["AYF", 5], ["Long", 10]]
-             "10" : [["Flex", 3], ["Intervals", 5], ["Rest", 0], ["Reg", 6], ["Rest", 0], ["AYF", 4], ["Long", 18]]
-             "11" : [["Flex", 3], ["Hills", 5], ["Rest", 0], ["Reg", 8], ["Rest", 0], ["AYF", 5], ["Long", 10]]
-             "12" : [["Flex", 3], ["Tempo", 8], ["Rest", 0], ["Reg", 6], ["Rest", 0], ["Rest", 0], ["Long", 20]]
-             "13" : [["Flex", 3], ["Intervals", 4], ["Rest", 0], ["Reg", 8], ["Rest", 0], ["AYF", 5], ["Long", 10]]
-             "14" : [["Flex", 3], ["Hills", 4], ["Rest", 0], ["Reg", 6], ["Rest", 0], ["AYF", 4], ["Long", 12]]
-             "15" : [["Flex", 3], ["Tempo", 3], ["Rest", 0], ["Reg", 5], ["Rest", 0], ["AYF", 4], ["Long", 7]]
+             "2" : [["Flex", 3], ["Fart", 3], ["Rest", 0], ["Reg", 4], ["Rest", 0], ["AYF", 3], ["Long", 8]],
+             "3" : [["Flex", 3], ["Tempo", 4], ["Rest", 0], ["Reg", 5], ["Rest", 0], ["AYF", 4], ["Long", 10]],
+             "4" : [["Flex", 3], ["Intervals", 4], ["Rest", 0], ["Reg", 6], ["Rest", 0], ["AYF", 4], ["Long", 12]],
+             "5" : [["Flex", 3], ["Hills", 4], ["Rest", 0], ["Reg", 6], ["Rest", 0], ["AYF", 5], ["Long", 10]],
+             "6" : [["Flex", 3], ["Tempo", 5], ["Rest", 0], ["Reg", 5], ["Rest", 0], ["Rest", 0], ["Long", 14]],
+             "7" : [["Flex", 3], ["Intervals", 5], ["Rest", 0], ["Reg", 5], ["Rest", 0], ["AYF", 5], ["Long", 10]],
+             "8" : [["Flex", 3], ["Hills", 4], ["Rest", 0], ["Reg", 6], ["Rest", 0], ["AYF", 5], ["Long", 16]],
+             "9" : [["Flex", 3], ["Tempo", 6], ["Rest", 0], ["Reg", 5], ["Rest", 0], ["AYF", 5], ["Long", 10]],
+             "10" : [["Flex", 3], ["Intervals", 5], ["Rest", 0], ["Reg", 6], ["Rest", 0], ["AYF", 4], ["Long", 18]],
+             "11" : [["Flex", 3], ["Hills", 5], ["Rest", 0], ["Reg", 8], ["Rest", 0], ["AYF", 5], ["Long", 10]],
+             "12" : [["Flex", 3], ["Tempo", 8], ["Rest", 0], ["Reg", 6], ["Rest", 0], ["Rest", 0], ["Long", 20]],
+             "13" : [["Flex", 3], ["Intervals", 4], ["Rest", 0], ["Reg", 8], ["Rest", 0], ["AYF", 5], ["Long", 10]],
+             "14" : [["Flex", 3], ["Hills", 4], ["Rest", 0], ["Reg", 6], ["Rest", 0], ["AYF", 4], ["Long", 12]],
+             "15" : [["Flex", 3], ["Tempo", 3], ["Rest", 0], ["Reg", 5], ["Rest", 0], ["AYF", 4], ["Long", 7]],
              "16" : [["Flex", 3], ["Reg", 3], ["Rest", 0], ["Reg", 3], ["Rest", 0], ["AYF", 2], ["Race!", 26.2]]}
 
 # This inserts a singular dictionary into the associated document
