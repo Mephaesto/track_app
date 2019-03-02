@@ -5,6 +5,6 @@
 import pymongo
 
 client = pymongo.MongoClient("mongodb://root:trackstar2019@track.mongodb.net/admin")
-db = client.test
+db = client.track
 
 
