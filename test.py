@@ -30,10 +30,11 @@ speed = {'type': 'speed', 'A': [["Lateral sled drag into sprint explosion", "8x2
 conditioning = {'type': 'conditioning', 'A': [["Three-point stance sprint", "6x40", 45]],
         'B': [["30 yd lateral shuffle", "6x1", 45]], 'C': [["KB/DB swing", "5x8", 10],
             ["Explosive push ups", "5x8", 10], ["Split squat jumps", "5x3", 90]]}
+pitching = {'type': 'pitching', 'note': "Create a contrast training effect by going from heavy to light(and thus increasing your velocity when you come back to light)", 'throw': [["2-4", "5", 30], ["2-4", "7", 30],["2-4", "9", 45],["2-4", "5", 30]]}
 
 # This inserts a singular dictionary into the associated document
 baseball.replace_one({'type': "agility"},agility, upsert=True)
 baseball.replace_one({'type': "speed"}, speed, upsert=True)
 #baseball.insert_one(speed)
 baseball.replace_one({'type': "conditioning"}, conditioning, upsert=True)
-
+baseball.replace_one({'type': "pitching"}, pitching, upsert=True)
