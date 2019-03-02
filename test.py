@@ -15,8 +15,12 @@ baseball = db.Baseball
 marathon = db.Marathon
 triathlon = db.Triathlon
 
+baseball.create_index([('type', pymongo.ASCENDING)], unique=True)
+marathon.create_index([('type', pymongo.ASCENDING)], unique=True)
+triathlon.create_index([('type', pymongo.ASCENDING)], unique=True)
+
 # This is a python dictionary which you can pass to the insert function to be parsed into BSON
-agility = { "A" : [["Barbell back squat", "5x5",  10], ["Bodyweight vertical jumps", "5x5", 120]],
+agility = {'type': 'agility', "A" : [["Barbell back squat", "5x5",  10], ["Bodyweight vertical jumps", "5x5", 120]],
         "B" : [["Barbell good mornings","5x5", 10], ["Broad jumps", "5x5", 120]]}
 
 # This inserts a singular dictionary into the associated document
