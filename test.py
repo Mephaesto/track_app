@@ -34,11 +34,11 @@ result2 = triathlon.insert_many(tria_records_)
 #print(result1)
 #print(result2)
 
-data = pd.DataFrame(list(baseball.find({'Week': 3, 'Day': 2})))
+#data = pd.DataFrame(list(baseball.find({'Week': 3, 'Day': 2})))
 
 #print(data)
 
-for index, rows in data.iterrows():
-    print(rows['Definition'])
+#for index, rows in data.iterrows():
+#    print(rows['Definition'])
 
 
