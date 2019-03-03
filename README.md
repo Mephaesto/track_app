@@ -2,7 +2,7 @@
 
 ## How to Install track
 > From Google Drive:
-> > Download trackappv1.zip from this link: bit.ly/track_app
+> > Download trackappv1.zip from this link: [bit.ly/track_app](https://bit.ly/track_app)
 > >
 > > Unzip folder 
 > >
