@@ -14,7 +14,7 @@ import webbrowser
 import pymongo
 import pandas as pd
 from pymongo import MongoClient
-import datetime
+from datetime import datetime, timedelta
 import math
 
 # Class that displays the main window
@@ -79,7 +79,7 @@ class App(tk.Frame):
 		self.day.grid(column = 3, row = 2)
 		self.year.grid(column = 4, row = 2)
 		top.submitImage = tk.PhotoImage(file='submitButton.png')
-		top.submitButton = tk.Button(top,image=top.submitImage,command=lambda : self.saveInput(self.day,self.month,self.year,event),height=45,width=170,bg='#FDFDFD',borderwidth=0)
+		top.submitButton = tk.Button(top,image=top.submitImage,command=lambda : (self.saveInput(self.day,self.month,self.year,event),top.destroy()),height=45,width=170,bg='#FDFDFD',borderwidth=0)
 		top.submitButton.grid(column=3,row=3,sticky = 'ew')
 		top.cancelImage = tk.PhotoImage(file='cancelImage.png')
 		top.cancelButton = tk.Button(top, image=top.cancelImage,command=top.destroy,height=45,width=170,bg = '#FDFDFD',borderwidth=0)
@@ -142,67 +142,85 @@ class App(tk.Frame):
 		endP = str(end)
 		webbrowser.open((endP.split('open: ')[1]).split('\n')[0])
 		
-		#notify.send("Subscribed Succesfully")
-	
 	# database querying function, using MongoDB as backend
 	def eventTime(self,endDate,type):
-		#query database
-		#findone from database numWeeks from eventTYpe
 		client = pymongo.MongoClient("mongodb+srv://root:trackstar@track-tyc0p.gcp.mongodb.net/test?retryWrites=true")
 		db = client.track
 		bCollection = db.Baseball
 		mCollection = db.Marathon
 		tCollection = db.Triathlon
 		
-		today = datetime.datetime.today()
+		today = datetime.today()
 		delta = endDate - today
 		weeksLeft = math.floor(delta.days/7)
 		daysLeft = delta.days%7
-		if type == "baseball":
-			data= pd.DataFrame(list(bCollection.find({'Weeks' : weeksLeft})))
-		elif type == "marathon":
-			data= pd.DataFrame(list(mCollection.find({'Weeks' : weeksLeft})))
-		elif type == "triathlon":
-			data= pd.DataFrame(list(tCollection.find({'Weeks' : weeksLeft})))
-
-		for index, rows in data.iterrows():
-			sendTo = Notify()
-			sendTo.send(rows['Definition'])
+		baseballWeeks = len(bCollection.distinct("Week"))
+		marathonWeeks = len(mCollection.distinct("Week"))
+		triathlonWeeks = len(tCollection.distinct("Week"))
 		
+		startDate = datetime.today()
 		
+		if weeksLeft > 0:
+			if type == "baseball":
+				startDate = endDate - timedelta(days=28)
+				data= pd.DataFrame(list(bCollection.find({'Week' : weeksLeft, 'Day' : daysLeft})))
+			elif type == "marathon":
+				startDate = endDate - timedelta(days=112)
+				data= pd.DataFrame(list(mCollection.find({'Week' : weeksLeft, 'Day' : daysLeft})))
+			elif type == "triathlon":
+				startDate = endDate - timedelta(days=42)
+				data= pd.DataFrame(list(tCollection.find({'Weeks' : weeksLeft, 'Day' : daysLeft})))
+				
+			if (startDate <= today) :
+				daysIntoIt = today - startDate
+				weeksIntoIt = math.floor(daysIntoIt.days/7)
+				daysIntoIt = daysIntoIt.days%7
+			else :
+				tk.messagebox.showerror("Error", "The event is too far away to start preparing. Relax!")
+			if type == "baseball":
+				for index, rows in data.iterrows():
+					sendTo = Notify()
+					sendTo.send(rows['Definition'])
+			elif type == "marathon":
+				print("test")
+				for index, rows in data.iterrows():
+					print("we made it into the loop")
+					sendTo = Notify()
+					sendTo.send(str(rows['Excercise']) + " for " + str(rows['Distance']) + " miles")
+			elif type == "triathlon":
+				for index, rows in data.iterrows():
+					sendTo = Notify()
+					sendTo.send(rows['Definition'])
+			
+		elif weeksLeft <= 0 :
+			tk.messagebox.showerror("Error","Please enter a valid date, at least one week from today.")
 		
 	# saving user input for use in above buttons
 	def saveInput(self,month,day,year,type):
-		day = self.day.get()
-		if day.isalpha():
-			tk.messagebox.showerror("Error","Please enter a valid day. (1-31)")
-		elif day == '':
-			tk.messagebox.showerror("Error","Please enter a valid day. (1-31)")
-		else :
-			dayDate = int(day)
-			if dayDate < 0 or dayDate > 31:
-				tk.messagebox.showerror("Error","Please enter a valid day. (1-31)")
-				
 		month = self.month.get()
-		if month.isalpha():
-			tk.messagebox.showerror("Error","Please enter a valid month. (1-12)")
-		elif month == '':
+		if month.isalpha() or month.islower() or month == '':
 			tk.messagebox.showerror("Error","Please enter a valid month. (1-12)")
 		else :
 			monthDate = int(month)
 			if monthDate < 0 or monthDate > 12:
 				tk.messagebox.showerror("Error","Please enter a valid month. (1-12)")
 				
+		day = self.day.get()
+		if day.isalpha() or day.islower() or day == '':
+			tk.messagebox.showerror("Error","Please enter a valid day. (1-31)")
+		else :
+			dayDate = int(day)
+			if dayDate < 0 or dayDate > 31:
+				tk.messagebox.showerror("Error","Please enter a valid day. (1-31)")
+				
 		year = self.year.get()
-		if year.isalpha():
-			tk.messagebox.showerror("Error","Please enter a valid year in the format yyyy (e.g 2020)")
-		elif year == '':
+		if year.isalpha() or year.islower() or year =='' :
 			tk.messagebox.showerror("Error","Please enter a valid year in the format yyyy (e.g 2020)")
 		else :
 			if len(year) != 4:
 				tk.messagebox.showerror("Error","Please enter a valid year in the format yyyy (e.g 2020)")
 				
-		endDate = datetime.datetime(int(year), int(month), int(day))
+		endDate = datetime(int(year), int(month), int(day))
 		self.eventTime(endDate,type)
 				
 		
