@@ -17,6 +17,7 @@ from pymongo import MongoClient
 from datetime import datetime, timedelta
 import math
 import schedule
+import time
 
 # Class that displays the main window
 class App(tk.Frame):
@@ -181,18 +182,19 @@ class App(tk.Frame):
 			if type == "baseball":
 				for index, rows in data.iterrows():
 					sendTo = Notify()
-					schedule.every(1).minutes.do(sendTo.send(rows['Definition']))
+					schedule.every(1).seconds.do(sendTo.send, message = rows['Definition'])
 			elif type == "marathon":
 				for index, rows in data.iterrows():
 					sendTo = Notify()
-					schedule.every(1).minutes.do(sendTo.send(str(rows['Excercise']) + " for " + str(rows['Distance']) + " miles"))
+					schedule.every(1).seconds.do(sendTo.send, message = str(rows['Excercise']) + " for " + str(rows['Distance']) + " miles")
 			elif type == "triathlon":
 				for index, rows in data.iterrows():
 					sendTo = Notify()
-					schedule.every(1).minutes.do(sendTo.send(str(rows['Excercise']) + " for " + str(rows['Duration (minutes)'] + " minutes")))
+					schedule.every(1).seconds.do(sendTo.send, message = str(rows['Excercise']) + " for " + str(rows['Duration (minutes)'] + " minutes"))
 
 		elif weeksLeft <= 0 :
 			tk.messagebox.showerror("Error","Please enter a valid date, at least one week from today.")
+		
 
 	# saving user input for use in above buttons
 	def saveInput(self,month,day,year,type):
@@ -221,12 +223,23 @@ class App(tk.Frame):
 
 		endDate = datetime(int(year), int(month), int(day))
 		self.eventTime(endDate,type)
+		
+	
+	
+def task():
+		schedule.run_pending()
+		time.sleep(1)
+		root.after(60000,task)
 
 
 
 
+#notify = Notify()
+#print(dir(notify.send()))
 # This code block runs the main application window, as well as sets it's look and geometry
+
 root = tk.Tk()
 root.configure(bg ='#FDFDFD')
 gui = App(master = root)
+root.after(60000,task)
 gui.mainloop()
