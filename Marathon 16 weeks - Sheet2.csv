@@ -1,0 +1,113 @@
+Event,Week,Day,Excercise,Distance,Definition?
+Marathon,1,1,Flex Run,3,Flex Day: The best day of the week to replace your run with a cross-training session or a day Off!
+Marathon,1,2,Regular Run,3,"Regular Run: A run performed at a comfortable, not-too-hard pace."
+Marathon,1,3,Off,0,Take a day off!
+Marathon,1,4,Regular Run,3,"Regular Run: A run performed at a comfortable, not-too-hard pace."
+Marathon,1,5,Off,0,Take a day off!
+Marathon,1,6,Off,0,Take a day off!
+Marathon,1,7,Long Run,6,Long Run: The most important workout of the week for distance runners. Long runs build both strength and confidence.
+Marathon,2,1,Flex Run,3,Flex Day: The best day of the week to replace your run with a cross-training session or a day Off!
+Marathon,2,2,Fartlek Run,3,"Fartlek: Swedish for \“speed play.\"" Fartlek workouts involve running at different speeds for varying periods--good preparation for shifting gears in a race"
+Marathon,2,3,Off,0,Take a day off!
+Marathon,2,4,Regular Run,4,"Regular Run: A run performed at a comfortable, not-too-hard pace."
+Marathon,2,5,Off,0,Take a day off!
+Marathon,2,6,AYF,3,"As You Feel (AYF): For these runs, leave your watch and your cares behind. Run for the fun of it, not because you're training. Run as fast—or as slow—as you like."
+Marathon,2,7,Long Run,8,Long Run: The most important workout of the week for distance runners. Long runs build both strength and confidence.
+Marathon,3,1,Flex Run,3,Flex Day: The best day of the week to replace your run with a cross-training session or a day Off!
+Marathon,3,2,Tempo Run,4,Tempo Run: A training run (usually 20 to 30 minutes) at a pace slightly slower than 10K race pace.
+Marathon,3,3,Off,0,Take a day off!
+Marathon,3,4,Regular Run,5,"Regular Run: A run performed at a comfortable, not-too-hard pace."
+Marathon,3,5,Off,0,Take a day off!
+Marathon,3,6,AYF,4,"As You Feel (AYF): For these runs, leave your watch and your cares behind. Run for the fun of it, not because you're training. Run as fast—or as slow—as you like."
+Marathon,3,7,Long Run,10,Long Run: The most important workout of the week for distance runners. Long runs build both strength and confidence.
+Marathon,4,1,Flex Run,3,Flex Day: The best day of the week to replace your run with a cross-training session or a day Off!
+Marathon,4,2,Interval Run,4,"Intervals: Running short (usually between 200 and 1600 meters), fast repeats with recovery jogs in between. Interval training builds speed and endurance."
+Marathon,4,3,Off,0,Take a day off!
+Marathon,4,4,Regular Run,6,"Regular Run: A run performed at a comfortable, not-too-hard pace."
+Marathon,4,5,Off,0,Take a day off!
+Marathon,4,6,AYF,4,"As You Feel (AYF): For these runs, leave your watch and your cares behind. Run for the fun of it, not because you're training. Run as fast—or as slow—as you like."
+Marathon,4,7,Long Run,12,Long Run: The most important workout of the week for distance runners. Long runs build both strength and confidence.
+Marathon,5,1,Flex Run,3,Flex Day: The best day of the week to replace your run with a cross-training session or a day Off!
+Marathon,5,2,Hill Run,5,Run in an area with lots of inclines!
+Marathon,5,3,Off,0,Take a day off!
+Marathon,5,4,Regular Run,6,"Regular Run: A run performed at a comfortable, not-too-hard pace."
+Marathon,5,5,Off,0,Take a day off!
+Marathon,5,6,AYF,5,"As You Feel (AYF): For these runs, leave your watch and your cares behind. Run for the fun of it, not because you're training. Run as fast—or as slow—as you like."
+Marathon,5,7,Long Run,10,Long Run: The most important workout of the week for distance runners. Long runs build both strength and confidence.
+Marathon,6,1,Flex Run,3,Flex Day: The best day of the week to replace your run with a cross-training session or a day Off!
+Marathon,6,2,Tempo Run,5,Tempo Run: A training run (usually 20 to 30 minutes) at a pace slightly slower than 10K race pace.
+Marathon,6,3,Off,0,Take a day off!
+Marathon,6,4,Regular Run,5,"Regular Run: A run performed at a comfortable, not-too-hard pace."
+Marathon,6,5,Off,0,Take a day off!
+Marathon,6,6,Off,0,Take a day off!
+Marathon,6,7,Long Run,14,Long Run: The most important workout of the week for distance runners. Long runs build both strength and confidence.
+Marathon,7,1,Flex Run,3,Flex Day: The best day of the week to replace your run with a cross-training session or a day Off!
+Marathon,7,2,Interval Run,5,"Intervals: Running short (usually between 200 and 1600 meters), fast repeats with recovery jogs in between. Interval training builds speed and endurance."
+Marathon,7,3,Off,0,Take a day off!
+Marathon,7,4,Regular Run,5,"Regular Run: A run performed at a comfortable, not-too-hard pace."
+Marathon,7,5,Off,0,Take a day off!
+Marathon,7,6,AYF,5,"As You Feel (AYF): For these runs, leave your watch and your cares behind. Run for the fun of it, not because you're training. Run as fast—or as slow—as you like."
+Marathon,7,7,Long Run,10,Long Run: The most important workout of the week for distance runners. Long runs build both strength and confidence.
+Marathon,8,1,Flex Run,3,Flex Day: The best day of the week to replace your run with a cross-training session or a day Off!
+Marathon,8,2,Hill Run,4,Run in an area with lots of inclines!
+Marathon,8,3,Off,0,Take a day off!
+Marathon,8,4,Regular Run,6,"Regular Run: A run performed at a comfortable, not-too-hard pace."
+Marathon,8,5,Off,0,Take a day off!
+Marathon,8,6,AYF,5,"As You Feel (AYF): For these runs, leave your watch and your cares behind. Run for the fun of it, not because you're training. Run as fast—or as slow—as you like."
+Marathon,8,7,Long Run,16,Long Run: The most important workout of the week for distance runners. Long runs build both strength and confidence.
+Marathon,9,1,Flex Run,3,Flex Day: The best day of the week to replace your run with a cross-training session or a day Off!
+Marathon,9,2,Tempo Run,6,Tempo Run: A training run (usually 20 to 30 minutes) at a pace slightly slower than 10K race pace.
+Marathon,9,3,Off,0,Take a day off!
+Marathon,9,4,Regular Run,5,"Regular Run: A run performed at a comfortable, not-too-hard pace."
+Marathon,9,5,Off,0,Take a day off!
+Marathon,9,6,AYF,5,"As You Feel (AYF): For these runs, leave your watch and your cares behind. Run for the fun of it, not because you're training. Run as fast—or as slow—as you like."
+Marathon,9,7,Long Run,10,Long Run: The most important workout of the week for distance runners. Long runs build both strength and confidence.
+Marathon,10,1,Flex Run,3,Flex Day: The best day of the week to replace your run with a cross-training session or a day Off!
+Marathon,10,2,Interval Run,5,"Intervals: Running short (usually between 200 and 1600 meters), fast repeats with recovery jogs in between. Interval training builds speed and endurance."
+Marathon,10,3,Off,0,Take a day off!
+Marathon,10,4,Regular Run,6,"Regular Run: A run performed at a comfortable, not-too-hard pace."
+Marathon,10,5,Off,0,Take a day off!
+Marathon,10,6,AYF,4,"As You Feel (AYF): For these runs, leave your watch and your cares behind. Run for the fun of it, not because you're training. Run as fast—or as slow—as you like."
+Marathon,10,7,Long Run,18,Long Run: The most important workout of the week for distance runners. Long runs build both strength and confidence.
+Marathon,11,1,Flex Run,3,Flex Day: The best day of the week to replace your run with a cross-training session or a day Off!
+Marathon,11,2,Hill Run,5,Run in an area with lots of inclines!
+Marathon,11,3,Off,0,Take a day off!
+Marathon,11,4,Regular Run,8,"Regular Run: A run performed at a comfortable, not-too-hard pace."
+Marathon,11,5,Off,0,Take a day off!
+Marathon,11,6,AYF,5,"As You Feel (AYF): For these runs, leave your watch and your cares behind. Run for the fun of it, not because you're training. Run as fast—or as slow—as you like."
+Marathon,11,7,Long Run,10,Long Run: The most important workout of the week for distance runners. Long runs build both strength and confidence.
+Marathon,12,1,Flex Run,3,Flex Day: The best day of the week to replace your run with a cross-training session or a day Off!
+Marathon,12,2,Tempo Run,8,Tempo Run: A training run (usually 20 to 30 minutes) at a pace slightly slower than 10K race pace.
+Marathon,12,3,Off,0,Take a day off!
+Marathon,12,4,Regular Run,6,"Regular Run: A run performed at a comfortable, not-too-hard pace."
+Marathon,12,5,Off,0,Take a day off!
+Marathon,12,6,Off,0,Take a day off!
+Marathon,12,7,Long Run,20,Long Run: The most important workout of the week for distance runners. Long runs build both strength and confidence.
+Marathon,13,1,Flex Run,3,Flex Day: The best day of the week to replace your run with a cross-training session or a day Off!
+Marathon,13,2,Interval Run,4,"Intervals: Running short (usually between 200 and 1600 meters), fast repeats with recovery jogs in between. Interval training builds speed and endurance."
+Marathon,13,3,Off,0,Take a day off!
+Marathon,13,4,Regular Run,8,"Regular Run: A run performed at a comfortable, not-too-hard pace."
+Marathon,13,5,Off,0,Take a day off!
+Marathon,13,6,AYF,5,"As You Feel (AYF): For these runs, leave your watch and your cares behind. Run for the fun of it, not because you're training. Run as fast—or as slow—as you like."
+Marathon,13,7,Long Run,10,Long Run: The most important workout of the week for distance runners. Long runs build both strength and confidence.
+Marathon,14,1,Flex Run,3,Flex Day: The best day of the week to replace your run with a cross-training session or a day Off!
+Marathon,14,2,Hill Run,4,Run in an area with lots of inclines!
+Marathon,14,3,Off,0,Take a day off!
+Marathon,14,4,Regular Run,6,"Regular Run: A run performed at a comfortable, not-too-hard pace."
+Marathon,14,5,Off,0,Take a day off!
+Marathon,14,6,AYF,4,"As You Feel (AYF): For these runs, leave your watch and your cares behind. Run for the fun of it, not because you're training. Run as fast—or as slow—as you like."
+Marathon,14,7,Long Run,12,Long Run: The most important workout of the week for distance runners. Long runs build both strength and confidence.
+Marathon,15,1,Flex Run,3,Flex Day: The best day of the week to replace your run with a cross-training session or a day Off!
+Marathon,15,2,Tempo Run,3,Tempo Run: A training run (usually 20 to 30 minutes) at a pace slightly slower than 10K race pace.
+Marathon,15,3,Off,0,Take a day off!
+Marathon,15,4,Regular Run,5,"Regular Run: A run performed at a comfortable, not-too-hard pace."
+Marathon,15,5,Off,0,Take a day off!
+Marathon,15,6,AYF,4,"As You Feel (AYF): For these runs, leave your watch and your cares behind. Run for the fun of it, not because you're training. Run as fast—or as slow—as you like."
+Marathon,15,7,Long Run,7,Long Run: The most important workout of the week for distance runners. Long runs build both strength and confidence.
+Marathon,16,1,Flex Run,3,Flex Day: The best day of the week to replace your run with a cross-training session or a day Off!
+Marathon,16,2,Regular Run,3,"Regular Run: A run performed at a comfortable, not-too-hard pace."
+Marathon,16,3,Off,0,Take a day off!
+Marathon,16,4,Regular Run,3,"Regular Run: A run performed at a comfortable, not-too-hard pace."
+Marathon,16,5,Off,0,Take a day off!
+Marathon,16,6,AYF,2,"As You Feel (AYF): For these runs, leave your watch and your cares behind. Run for the fun of it, not because you're training. Run as fast—or as slow—as you like."
+Marathon,16,7,RACE,26.2,It's time! The race you've been preparing for.
