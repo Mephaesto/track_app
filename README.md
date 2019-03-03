@@ -17,6 +17,9 @@
 > >
 > > clone repo
 > > 
+> > install python packages if need be
+> > > tkinter, mongodb, notify.run, etc (see import statements)
+> > 
 > > From Command Line: 
 > >
 > > run "test.py" to populate database
