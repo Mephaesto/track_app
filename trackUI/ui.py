@@ -16,27 +16,28 @@ import pandas as pd
 from pymongo import MongoClient
 from datetime import datetime, timedelta
 import math
+import schedule
 
 # Class that displays the main window
 class App(tk.Frame):
-	
+
 	def __init__(self, master = None):
 		super().__init__(master)
 		self.master = master
 		master.title("track")
 		self.pack()
 		self.drawWidgets()
-		
-	# Function that creates the widgets on the main window, including the logo and buttons. 	
+
+	# Function that creates the widgets on the main window, including the logo and buttons.
 	def drawWidgets(self):
-		
+
 		# Logo
 		image = Image.open("logo.png")
 		logo = ImageTk.PhotoImage(image)
 		self.label = tk.Label(self, image=logo, highlightthickness=0,borderwidth=0,bg='#FDFDFD')
 		self.label.image = logo
 		self.label.grid(columnspan=3,rowspan=3,sticky='ew')
-		
+
 		# Subscribe button
 		self.subImage = tk.PhotoImage(file='registerButton.png')
 		self.sub = tk.Button(self,image=self.subImage,command = self.subscribe,height=45,width=170,bg='#FDFDFD',borderwidth=0)
@@ -58,7 +59,7 @@ class App(tk.Frame):
 		self.exitImage = tk.PhotoImage(file='exitButton.png')
 		self.exit = tk.Button(self,image=self.exitImage,command = root.destroy,height=45,width=170,bg = '#FDFDFD',borderwidth=0)
 		self.exit.grid(row=5,column=0,columnspan=3,stick='ew')
-	
+
 	# baseball button functionality
 	def baseball(self):
 		event = "baseball"
@@ -141,7 +142,7 @@ class App(tk.Frame):
 		end = notify.register()
 		endP = str(end)
 		webbrowser.open((endP.split('open: ')[1]).split('\n')[0])
-		
+
 	# database querying function, using MongoDB as backend
 	def eventTime(self,endDate,type):
 		client = pymongo.MongoClient("mongodb+srv://root:trackstar@track-tyc0p.gcp.mongodb.net/test?retryWrites=true")
@@ -149,7 +150,7 @@ class App(tk.Frame):
 		bCollection = db.Baseball
 		mCollection = db.Marathon
 		tCollection = db.Triathlon
-		
+
 		today = datetime.today()
 		delta = endDate - today
 		weeksLeft = math.floor(delta.days/7)
@@ -157,9 +158,9 @@ class App(tk.Frame):
 		baseballWeeks = len(bCollection.distinct("Week"))
 		marathonWeeks = len(mCollection.distinct("Week"))
 		triathlonWeeks = len(tCollection.distinct("Week"))
-		
+
 		startDate = datetime.today()
-		
+
 		if weeksLeft > 0:
 			if type == "baseball":
 				startDate = endDate - timedelta(days=28)
@@ -170,7 +171,7 @@ class App(tk.Frame):
 			elif type == "triathlon":
 				startDate = endDate - timedelta(days=42)
 				data= pd.DataFrame(list(tCollection.find({'Week' : weeksLeft, 'Day' : daysLeft})))
-				
+
 			if (startDate <= today) :
 				daysIntoIt = today - startDate
 				weeksIntoIt = math.floor(daysIntoIt.days/7)
@@ -180,19 +181,19 @@ class App(tk.Frame):
 			if type == "baseball":
 				for index, rows in data.iterrows():
 					sendTo = Notify()
-					sendTo.send(rows['Definition'])
+					schedule.every(1).minutes.do(sendTo.send(rows['Definition']))
 			elif type == "marathon":
 				for index, rows in data.iterrows():
 					sendTo = Notify()
-					sendTo.send(str(rows['Excercise']) + " for " + str(rows['Distance']) + " miles")
+					schedule.every(1).minutes.do(sendTo.send(str(rows['Excercise']) + " for " + str(rows['Distance']) + " miles"))
 			elif type == "triathlon":
 				for index, rows in data.iterrows():
 					sendTo = Notify()
-					sendTo.send(str(rows['Excercise']) + " for " + str(rows['Duration (minutes)'] + " minutes"))
-			
+					schedule.every(1).minutes.do(sendTo.send(str(rows['Excercise']) + " for " + str(rows['Duration (minutes)'] + " minutes")))
+
 		elif weeksLeft <= 0 :
 			tk.messagebox.showerror("Error","Please enter a valid date, at least one week from today.")
-		
+
 	# saving user input for use in above buttons
 	def saveInput(self,month,day,year,type):
 		month = self.month.get()
@@ -202,7 +203,7 @@ class App(tk.Frame):
 			monthDate = int(month)
 			if monthDate < 0 or monthDate > 12:
 				tk.messagebox.showerror("Error","Please enter a valid month. (1-12)")
-				
+
 		day = self.day.get()
 		if day.isalpha() or day.islower() or day == '':
 			tk.messagebox.showerror("Error","Please enter a valid day. (1-31)")
@@ -210,21 +211,21 @@ class App(tk.Frame):
 			dayDate = int(day)
 			if dayDate < 0 or dayDate > 31:
 				tk.messagebox.showerror("Error","Please enter a valid day. (1-31)")
-				
+
 		year = self.year.get()
 		if year.isalpha() or year.islower() or year =='' :
 			tk.messagebox.showerror("Error","Please enter a valid year in the format yyyy (e.g 2020)")
 		else :
 			if len(year) != 4:
 				tk.messagebox.showerror("Error","Please enter a valid year in the format yyyy (e.g 2020)")
-				
+
 		endDate = datetime(int(year), int(month), int(day))
 		self.eventTime(endDate,type)
-				
-		
-		
-		
-# This code block runs the main application window, as well as sets it's look and geometry		
+
+
+
+
+# This code block runs the main application window, as well as sets it's look and geometry
 root = tk.Tk()
 root.configure(bg ='#FDFDFD')
 gui = App(master = root)
