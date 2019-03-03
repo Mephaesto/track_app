@@ -14,6 +14,8 @@ import webbrowser
 import pymongo
 import pandas as pd
 from pymongo import MongoClient
+import datetime
+import math
 
 # Class that displays the main window
 class App(tk.Frame):
@@ -143,14 +145,16 @@ class App(tk.Frame):
 		#notify.send("Subscribed Succesfully")
 	
 	# database querying function, using MongoDB as backend
-	def eventTime(self,month,day,year):
-		#query database
-		#findone from database numWeeks from eventTYpe
+	def eventTime(self, endDate):
 		client = pymongo.MongoClient("mongodb+srv://root:trackstar@track-tyc0p.gcp.mongodb.net/test?retryWrites=true")
 		db = client.track
 		collection = db.Baseball
 		data = pd.DataFrame(list(collection.find()))
 		print(data)
+		today = datetime.datetime.today()
+		delta = endDate - today
+		weeksLeft = math.floor(delta.days/7)
+		daysLeft = delta.days%7
 		#sendTo = Notify()
 		#sendTo.send(month + " " + day + " " + year )
 		
@@ -185,12 +189,13 @@ class App(tk.Frame):
 			if len(year) != 4:
 				tk.messagebox.showerror("Error","Please enter a valid year in the format yyyy (e.g 2020)")
 				
-		print(month + '/' + day + '/' + year)
-		self.eventTime(month,day,year)
+		endDate = datetime.datetime(int(year), int(month), int(day))
+		print(str(endDate.month) + '/' + str(endDate.day) + '/' + str(endDate.year))
+		self.eventTime(endDate)
 				
-		
-		
-		
+        
+        
+        
 # This code block runs the main application window, as well as sets it's look and geometry		
 root = tk.Tk()
 root.configure(bg ='#FDFDFD')
