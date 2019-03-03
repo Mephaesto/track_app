@@ -10,6 +10,9 @@ client = pymongo.MongoClient("mongodb+srv://root:trackstar@track-tyc0p.gcp.mongo
 
 # This chooses which database in the array to write to
 db = client.track
+db.Baseball.remove()
+db.Marathon.remove()
+db.Traithlon.remove()
 
 #These assign variables to documents in the database
 baseball = db.Baseball
@@ -31,6 +34,6 @@ result2 = triathlon.insert_many(tria_records_)
 #print(result1)
 #print(result2)
 
-data = pd.DataFrame(list(baseball.find({'Week': 3})))
+data = pd.DataFrame(list(baseball.find({'Week': 3, 'Day': 2})))
 
 print(data)
