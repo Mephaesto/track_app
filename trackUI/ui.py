@@ -9,7 +9,11 @@ import tkinter as tk
 import tkinter.messagebox
 from PIL import Image, ImageTk
 from notify_run import Notify
+import notify_run as nr
 import webbrowser
+import pymongo
+import pandas as pd
+from pymongo import MongoClient
 
 # Class that displays the main window
 class App(tk.Frame):
@@ -17,7 +21,7 @@ class App(tk.Frame):
 	def __init__(self, master = None):
 		super().__init__(master)
 		self.master = master
-		master.title("Base window")
+		master.title("track")
 		self.pack()
 		self.drawWidgets()
 		
@@ -63,14 +67,14 @@ class App(tk.Frame):
 		dayLabel = tk.Label(top,text="Day: ",font=("Courier",10),bg="#FDFDFD")
 		monthLabel = tk.Label(top,text="Month: ",font=("Courier",10),bg="#FDFDFD")
 		yearLabel = tk.Label(top,text="Year: ",font=("Courier",10),bg="#FDFDFD")
-		dayLabel.grid(column = 2, row = 1)
-		monthLabel.grid(column = 3, row = 1)
+		monthLabel.grid(column = 2, row = 1)
+		dayLabel.grid(column = 3, row = 1)
 		yearLabel.grid(column = 4, row = 1)
 		self.day = tk.Entry(top,bg="#9C9A9B")
 		self.month = tk.Entry(top,bg="#9C9A9B")
 		self.year = tk.Entry(top,bg="#9C9A9B")
-		self.day.grid(column = 2, row = 2)
-		self.month.grid(column = 3, row = 2)
+		self.month.grid(column = 2, row = 2)
+		self.day.grid(column = 3, row = 2)
 		self.year.grid(column = 4, row = 2)
 		top.submitImage = tk.PhotoImage(file='submitButton.png')
 		top.submitButton = tk.Button(top,image=top.submitImage,command=lambda : self.saveInput(self.day,self.month,self.year,event),height=45,width=170,bg='#FDFDFD',borderwidth=0)
@@ -80,6 +84,7 @@ class App(tk.Frame):
 		top.cancelButton.grid(column=3,row=4, stick = 'ew')
 	# marathon button functionality
 	def marathon(self):
+		event = "marathon"
 		top = tk.Toplevel(self,bg="#FDFDFD")
 		top.title("Scheduling Assistant")
 		msg = tk.Label(top,text="What is the date of the marathon?",font=("Courier",18),bg='#FDFDFD')
@@ -87,14 +92,14 @@ class App(tk.Frame):
 		dayLabel = tk.Label(top,text="Day: ",font=("Courier",10),bg="#FDFDFD")
 		monthLabel = tk.Label(top,text="Month: ",font=("Courier",10),bg="#FDFDFD")
 		yearLabel = tk.Label(top,text="Year: ",font=("Courier",10),bg="#FDFDFD")
-		dayLabel.grid(column = 2, row = 1)
-		monthLabel.grid(column = 3, row = 1)
+		monthLabel.grid(column = 2, row = 1)
+		dayLabel.grid(column = 3, row = 1)
 		yearLabel.grid(column = 4, row = 1)
 		self.day = tk.Entry(top,bg="#9C9A9B")
 		self.month = tk.Entry(top,bg="#9C9A9B")
 		self.year = tk.Entry(top,bg="#9C9A9B")
-		self.day.grid(column = 2, row = 2)
-		self.month.grid(column = 3, row = 2)
+		self.month.grid(column = 2, row = 2)
+		self.day.grid(column = 3, row = 2)
 		self.year.grid(column = 4, row = 2)
 		top.submitImage = tk.PhotoImage(file='submitButton.png')
 		top.submitButton = tk.Button(top,image=top.submitImage,command=lambda : self.saveInput(self.day,self.month,self.year,event),height=45,width=170,bg='#FDFDFD',borderwidth=0)
@@ -104,6 +109,7 @@ class App(tk.Frame):
 		top.cancelButton.grid(column=3,row=4, stick = 'ew')
 	# triathlon button functionality
 	def triathlon(self):
+		event = "triathlon"
 		top = tk.Toplevel(self,bg="#FDFDFD")
 		top.title("Scheduling Assistant")
 		msg = tk.Label(top,text="What is the date of the triathlon?",font=("Courier",18),bg='#FDFDFD')
@@ -111,14 +117,14 @@ class App(tk.Frame):
 		dayLabel = tk.Label(top,text="Day: ",font=("Courier",10),bg="#FDFDFD")
 		monthLabel = tk.Label(top,text="Month: ",font=("Courier",10),bg="#FDFDFD")
 		yearLabel = tk.Label(top,text="Year: ",font=("Courier",10),bg="#FDFDFD")
-		dayLabel.grid(column = 2, row = 1)
-		monthLabel.grid(column = 3, row = 1)
+		monthLabel.grid(column = 2, row = 1)
+		dayLabel.grid(column = 3, row = 1)
 		yearLabel.grid(column = 4, row = 1)
 		self.day = tk.Entry(top,bg="#9C9A9B")
 		self.month = tk.Entry(top,bg="#9C9A9B")
 		self.year = tk.Entry(top,bg="#9C9A9B")
-		self.day.grid(column = 2, row = 2)
-		self.month.grid(column = 3, row = 2)
+		self.month.grid(column = 2, row = 2)
+		self.day.grid(column = 3, row = 2)
 		self.year.grid(column = 4, row = 2)
 		top.submitImage = tk.PhotoImage(file='submitButton.png')
 		top.submitButton = tk.Button(top,image=top.submitImage,command=lambda : self.saveInput(self.day,self.month,self.year,event),height=45,width=170,bg='#FDFDFD',borderwidth=0)
@@ -137,12 +143,19 @@ class App(tk.Frame):
 		#notify.send("Subscribed Succesfully")
 	
 	# database querying function, using MongoDB as backend
-	#def eventTime(eventType,numWeeks):
+	def eventTime(self,month,day,year):
 		#query database
 		#findone from database numWeeks from eventTYpe
+		client = pymongo.MongoClient("mongodb+srv://root:trackstar@track-tyc0p.gcp.mongodb.net/test?retryWrites=true")
+		db = client.track
+		collection = db.Baseball
+		data = pd.DataFrame(list(collection.find()))
+		print(data)
+		#sendTo = Notify()
+		#sendTo.send(month + " " + day + " " + year )
 		
 	# saving user input for use in above buttons
-	def saveInput(self,day,month,year,type):
+	def saveInput(self,month,day,year,type):
 		day = self.day.get()
 		if day.isalpha():
 			tk.messagebox.showerror("Error","Please enter a valid day. (1-31)")
@@ -173,7 +186,7 @@ class App(tk.Frame):
 				tk.messagebox.showerror("Error","Please enter a valid year in the format yyyy (e.g 2020)")
 				
 		print(month + '/' + day + '/' + year)
-		# eventTime(type,x)
+		self.eventTime(month,day,year)
 				
 		
 		
