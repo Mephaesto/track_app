@@ -10,9 +10,9 @@ client = pymongo.MongoClient("mongodb+srv://root:trackstar@track-tyc0p.gcp.mongo
 
 # This chooses which database in the array to write to
 db = client.track
-db.Baseball.remove()
-db.Marathon.remove()
-db.Traithlon.remove()
+db.Baseball.drop()
+db.Marathon.drop()
+db.Traithlon.drop()
 
 #These assign variables to documents in the database
 baseball = db.Baseball
