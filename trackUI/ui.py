@@ -70,8 +70,8 @@ class App(tk.Frame):
 		monthLabel.grid(column = 2, row = 1)
 		dayLabel.grid(column = 3, row = 1)
 		yearLabel.grid(column = 4, row = 1)
-		self.day = tk.Entry(top,bg="#9C9A9B")
 		self.month = tk.Entry(top,bg="#9C9A9B")
+		self.day = tk.Entry(top,bg="#9C9A9B")
 		self.year = tk.Entry(top,bg="#9C9A9B")
 		self.month.grid(column = 2, row = 2)
 		self.day.grid(column = 3, row = 2)
@@ -95,8 +95,8 @@ class App(tk.Frame):
 		monthLabel.grid(column = 2, row = 1)
 		dayLabel.grid(column = 3, row = 1)
 		yearLabel.grid(column = 4, row = 1)
-		self.day = tk.Entry(top,bg="#9C9A9B")
 		self.month = tk.Entry(top,bg="#9C9A9B")
+		self.day = tk.Entry(top,bg="#9C9A9B")
 		self.year = tk.Entry(top,bg="#9C9A9B")
 		self.month.grid(column = 2, row = 2)
 		self.day.grid(column = 3, row = 2)
@@ -120,8 +120,8 @@ class App(tk.Frame):
 		monthLabel.grid(column = 2, row = 1)
 		dayLabel.grid(column = 3, row = 1)
 		yearLabel.grid(column = 4, row = 1)
-		self.day = tk.Entry(top,bg="#9C9A9B")
 		self.month = tk.Entry(top,bg="#9C9A9B")
+		self.day = tk.Entry(top,bg="#9C9A9B")
 		self.year = tk.Entry(top,bg="#9C9A9B")
 		self.month.grid(column = 2, row = 2)
 		self.day.grid(column = 3, row = 2)
@@ -143,16 +143,28 @@ class App(tk.Frame):
 		#notify.send("Subscribed Succesfully")
 	
 	# database querying function, using MongoDB as backend
-	def eventTime(self,month,day,year):
+	def eventTime(self,month,day,year,type):
 		#query database
 		#findone from database numWeeks from eventTYpe
 		client = pymongo.MongoClient("mongodb+srv://root:trackstar@track-tyc0p.gcp.mongodb.net/test?retryWrites=true")
 		db = client.track
-		collection = db.Baseball
-		data = pd.DataFrame(list(collection.find()))
-		print(data)
-		#sendTo = Notify()
-		#sendTo.send(month + " " + day + " " + year )
+		bCollection = db.Baseball
+		mCollection = db.Marathon
+		tCollection = db.Triathlon
+		
+		if type == "baseball":
+			data= pd.DataFrame(list(bCollection.find(timeleft)))
+		elif type == "marathon":
+			data= pd.DataFrame(list(mCollection.find(timeleft)))
+		elif type == "triathlon":
+			data= pd.DataFrame(list(tCollection.find(timeleft)))
+
+		for index, rows in data.iterrows():
+			print(rows['Definition'])
+			sendTo = Notify()
+			sendTo.send(month + " " + day + " " + year )
+		
+		
 		
 	# saving user input for use in above buttons
 	def saveInput(self,month,day,year,type):
@@ -186,7 +198,7 @@ class App(tk.Frame):
 				tk.messagebox.showerror("Error","Please enter a valid year in the format yyyy (e.g 2020)")
 				
 		print(month + '/' + day + '/' + year)
-		self.eventTime(month,day,year)
+		self.eventTime(month,day,year,type)
 				
 		
 		
