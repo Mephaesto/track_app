@@ -19,7 +19,7 @@ baseball = db.Baseball
 marathon = db.Marathon
 triathlon = db.Triathlon
 df = pd.read_csv("Baseball - Sheet1.csv")
-maradf = pd.read_csv("Marathon 16 weeks - Sheet1.csv")
+maradf = pd.read_csv("Marathon 16 weeks - Sheet2.csv")
 triadf = pd.read_csv("Triathlon - Sheet1.csv")
 
 records_ = df.to_dict('records')
@@ -34,7 +34,7 @@ result2 = triathlon.insert_many(tria_records_)
 #print(result1)
 #print(result2)
 
-data = pd.DataFrame(list(triathlon.find({'Week': 3, 'Day': 2})))
+data = pd.DataFrame(list(marathon.find({'Week': 3, 'Day': 2})))
 
 print(data)
 
