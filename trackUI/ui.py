@@ -104,7 +104,7 @@ class App(tk.Frame):
 		self.day.grid(column = 3, row = 2)
 		self.year.grid(column = 4, row = 2)
 		top.submitImage = tk.PhotoImage(file='submitButton.png')
-		top.submitButton = tk.Button(top,image=top.submitImage,command=lambda : self.saveInput(self.day,self.month,self.year,event),height=45,width=170,bg='#FDFDFD',borderwidth=0)
+		top.submitButton = tk.Button(top,image=top.submitImage,command=lambda : (self.saveInput(self.day,self.month,self.year,event),top.destroy()),height=45,width=170,bg='#FDFDFD',borderwidth=0)
 		top.submitButton.grid(column=3,row=3,sticky = 'ew')
 		top.cancelImage = tk.PhotoImage(file='cancelImage.png')
 		top.cancelButton = tk.Button(top, image=top.cancelImage,command=top.destroy,height=45,width=170,bg = '#FDFDFD',borderwidth=0)
@@ -129,7 +129,7 @@ class App(tk.Frame):
 		self.day.grid(column = 3, row = 2)
 		self.year.grid(column = 4, row = 2)
 		top.submitImage = tk.PhotoImage(file='submitButton.png')
-		top.submitButton = tk.Button(top,image=top.submitImage,command=lambda : self.saveInput(self.day,self.month,self.year,event),height=45,width=170,bg='#FDFDFD',borderwidth=0)
+		top.submitButton = tk.Button(top,image=top.submitImage,command=lambda : (self.saveInput(self.day,self.month,self.year,event),top.destroy()),height=45,width=170,bg='#FDFDFD',borderwidth=0)
 		top.submitButton.grid(column=3,row=3,sticky = 'ew')
 		top.cancelImage = tk.PhotoImage(file='cancelImage.png')
 		top.cancelButton = tk.Button(top, image=top.cancelImage,command=top.destroy,height=45,width=170,bg = '#FDFDFD',borderwidth=0)
@@ -169,7 +169,7 @@ class App(tk.Frame):
 				data= pd.DataFrame(list(mCollection.find({'Week' : weeksLeft, 'Day' : daysLeft})))
 			elif type == "triathlon":
 				startDate = endDate - timedelta(days=42)
-				data= pd.DataFrame(list(tCollection.find({'Weeks' : weeksLeft, 'Day' : daysLeft})))
+				data= pd.DataFrame(list(tCollection.find({'Week' : weeksLeft, 'Day' : daysLeft})))
 				
 			if (startDate <= today) :
 				daysIntoIt = today - startDate
@@ -182,15 +182,13 @@ class App(tk.Frame):
 					sendTo = Notify()
 					sendTo.send(rows['Definition'])
 			elif type == "marathon":
-				print("test")
 				for index, rows in data.iterrows():
-					print("we made it into the loop")
 					sendTo = Notify()
 					sendTo.send(str(rows['Excercise']) + " for " + str(rows['Distance']) + " miles")
 			elif type == "triathlon":
 				for index, rows in data.iterrows():
 					sendTo = Notify()
-					sendTo.send(rows['Definition'])
+					sendTo.send(str(rows['Excercise']) + " for " + str(rows['Duration (minutes)'] + " minutes"))
 			
 		elif weeksLeft <= 0 :
 			tk.messagebox.showerror("Error","Please enter a valid date, at least one week from today.")
