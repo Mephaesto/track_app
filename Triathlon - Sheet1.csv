@@ -1,0 +1,43 @@
+Event,Week,Day,Excercise,Duration (minutes),Definition
+Triathlon,1,1,Swim,30,Swim around
+Triathlon,1,2,Bike,40-45,Ride a bike
+Triathlon,1,3,Run,15-20,Go for a run
+Triathlon,1,4,Swim & Bike,"30, 5",Swim and transition into biking
+Triathlon,1,5,Rest,0,Take a day off!
+Triathlon,1,6,Bike & Run,"30, 5",Bike and transition into running
+Triathlon,1,7,Swim,30,Swim around
+Triathlon,2,1,Run,15-20,Go for a run
+Triathlon,2,2,Swim,40,Swim around
+Triathlon,2,3,Bike,40-45,Ride a bike
+Triathlon,2,4,Swim & Bike,"30,5",Swim and transition into biking
+Triathlon,2,5,Rest,0,Take a day off!
+Triathlon,2,6,Bike & Run,"50,7-10",Bike and transition into running
+Triathlon,2,7,Bike,50-55,Ride a bike
+Triathlon,3,1,Run,20-25,Go for a run
+Triathlon,3,2,Swim,40,Swim around
+Triathlon,3,3,Bike,40-45,Ride a bike
+Triathlon,3,4,Swim & Bike,"30,5",Swim and transition into biking
+Triathlon,3,5,Rest,0,Take a day off!
+Triathlon,3,6,Bike & Run,"50,10",Bike and transition into running
+Triathlon,3,7,Run,20-25,Go for a run
+Triathlon,4,1,Swim,40,Swim around
+Triathlon,4,2,Bike,50-55,Ride a bike
+Triathlon,4,3,Run,20-25,Go for a run
+Triathlon,4,4,Swim & Bike,30,Swim and transition into biking
+Triathlon,4,5,Rest,0,Take a day off!
+Triathlon,4,6,Bike & Run,"45, 5",Bike and transition into running
+Triathlon,4,7,Swim,30,Swim around
+Triathlon,5,1,Run,25-30,Go for a run
+Triathlon,5,2,Swim,40,Swim around
+Triathlon,5,3,Bike & Run,40-45,Bike and transition into running
+Triathlon,5,4,Swim & Bike,"30, 5",Swim and transition into biking
+Triathlon,5,5,Rest,0,Take a day off!
+Triathlon,5,6,Bike & Run,"40, 5",Bike and transition into running
+Triathlon,5,7,Swim,30,Swim around
+Triathlon,6,1,Run,15-20,Go for a run
+Triathlon,6,2,Swim,30,Swim around
+Triathlon,6,3,Bike,50-55,Ride a bike
+Triathlon,6,4,Swim & bike,"20, 10",Swim and transition into biking
+Triathlon,6,5,Bike & Run,"20, 10",Bike and transition into running
+Triathlon,6,6,Rest,0,Take a day off!
+Triathlon,6,7,Race!,0,Win the race!
